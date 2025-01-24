@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #007b5e;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .image-text-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .image-text-section img {
+            flex: 1;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-text-section .text {
+            flex: 2;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            background: #007b5e;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .icons-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+
+        .icon {
+            text-align: center;
+        }
+
+        .icon img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .icon p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+    <p>"Our wellness journey starts here, explore our range of pharmaceutical treasures."</p>
+</header>
+
+<div class="container">
+    <section class="section">
+        <div class="image-text-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="text">
+                <h2>Biopharm, Plus de 30 ans d'expertise</h2>
+                <p>La société Biopharm est fondée en 1990 avec une vision de fournir des solutions pharmaceutiques innovantes. Depuis lors, elle a établi un réseau international de partenaires et s'est forgée une réputation d'excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="image-text-section">
+            <div class="text">
+                <h2>Toujours Plus Performants</h2>
+                <p>En 2024, notre entreprise continue de repousser les limites avec des innovations dans le secteur pharmaceutique. Nos équipes s'engagent à fournir des produits sûrs et efficaces.</p>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="icons-container">
+    <div class="icon">
+        <img src="https://via.placeholder.com/50" alt="Free Shipping">
+        <p>Free Shipping</p>
+    </div>
+    <div class="icon">
+        <img src="https://via.placeholder.com/50" alt="Reliable Products">
+        <p>Reliable Products</p>
+    </div>
+    <div class="icon">
+        <img src="https://via.placeholder.com/50" alt="Customer Support">
+        <p>Customer Support</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Biopharm. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

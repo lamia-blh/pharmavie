@@ -1,0 +1,55 @@
+/*
+Theme Name:  media4Newchild
+Theme URI:  
+Description:  Theme Media4 NEW
+Author:  Matthieu
+Textdomain:  
+Author URI:  
+Template:  hello-elementor
+Version:  1.0
+License:  GNU General Public License v2 or later
+License URI:            
+*/
+
+
+.pubmedia{
+    /* background: #FAFAFA; */
+    padding: 5px;
+}
+.pubmedia p{
+    position: absolute;
+    bottom: 0; /* -35px */
+    font-size: 10px;
+    color: #a5a5a5;
+}
+
+#logo img {
+    max-width: 175px;
+}
+
+@media (min-width: 768px){
+ }
+
+
+
+/* RSS */
+.allpost .item {width: 24%;display: inline-block;position: relative;margin: 0 0 35px 0;}
+.allpost {display: flex;flex-wrap: wrap;justify-content: space-between;}
+.backgart {height: 200px;background-position: center;background-size: cover; border-radius: 25px;}
+p.titleart {margin-bottom: 5px;text-transform: uppercase;text-align: center;font-weight: bold;margin-top: 15px;}
+p.exceart {max-width: 75%;margin: 0 auto;text-align: center;margin-top: 3px;}
+p.exceart + p {max-width: 75%;margin: 0 auto;text-align: center;margin-top: 3px;}
+.allpost .item a {position: absolute;left: 0;right: 0;bottom: 0;top: 0;}
+
+
+@media screen and (max-width: 768px){
+
+.allpost .item {width: 100%;margin-bottom: 20px;}
+.single-post h1.entry-title {font-size: 27px;padding: 0 15px;}
+.nav-links {padding: 0 15px;}
+.lignement .footer-widgets-wrapper {padding: 0.8em 15px;}
+.bann300 iframe {max-width: 100%;}
+.page-template-page-contact form p span {display: block;margin-top: 5px;}
+.archive .allpost .item {width: 100%;}
+
+}
