@@ -59,22 +59,14 @@
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img id="product-image" src="images/product_01.png" alt="Image" class="img-fluid p-5">
+              <img id="product-image" src="" alt="Image" class="img-fluid p-5">
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-black"> BIODERMA SENSIBIO H²O 500 ML</h2>
-            <p> 
-
-              BIODERMA SENSIBIO H²O 500 ML ,La peau pure comme à l’origine, apaisée et libérée du maquillage et de la pollution.
-
-              .Bénéfices :il Nettoie et apaisedeuxièmement il Garantit un nettoyage et un démaquillage en douceur du visage et des yeux et il Préserve l’équilibre naturel de la peau.
-              
-              Très bonne tolérance cutanée et oculaire – Sans rinçage – Non pa 
-              Nettoyez et/ou démaquillez délicatement le visage et les yeux.Sans rinçage..</p>
-            
-
-            <p><del>$95.00</del>  <strong class="text-primary h4">$55.00</strong></p>
+            <h2 class="text-black" id="product-name"></h2>
+            <p><del id="product-old-price"></del></p>
+            <p id="product-description"></p>
+            <p><strong class="text-primary h4" id="product-price"></strong></p>
 
             
             
@@ -89,8 +81,13 @@
                   <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                 </div>
               </div>
-    
             </div>
+            
+            <!-- Add total price display -->
+            <div class="mb-4">
+              <h4 class="text-black">Total: <span class="text-primary" id="total-price"></span></h4>
+            </div>
+
             <p><button class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</button></p>
 
             <div class="mt-5">
@@ -259,18 +256,51 @@
     document.addEventListener("DOMContentLoaded", function() {
       const urlParams = new URLSearchParams(window.location.search);
       const imgSrc = urlParams.get('img');
+      const productName = urlParams.get('name');
+      const productPrice = urlParams.get('price');
+      const productDescription = urlParams.get('description');
+      const quantityInput = document.querySelector('.form-control.text-center');
+      const minusButton = document.querySelector('.js-btn-minus');
+      const plusButton = document.querySelector('.js-btn-plus');
+
+      function updateTotalPrice() {
+        const quantity = parseInt(quantityInput.value) || 1;
+        const priceText = document.getElementById('product-price').innerText;
+        const price = parseFloat(priceText.replace('$', '')) || 0;
+        const total = quantity * price;
+        document.getElementById('total-price').innerText = `$${total.toFixed(2)}`;
+      }
+
       if (imgSrc) {
         document.getElementById('product-image').src = imgSrc;
       }
+      if (productName) {
+        document.getElementById('product-name').innerText = decodeURIComponent(productName);
+      }
+      if (productPrice) {
+        document.getElementById('product-price').innerText = `$${parseFloat(productPrice).toFixed(2)}`;
+      }
+      if (productDescription) {
+        document.getElementById('product-description').innerText = decodeURIComponent(productDescription);
+      }
+
+      // Initialize total price after setting product price
+      updateTotalPrice();
+
+      // Add event listeners for quantity changes
+      quantityInput.addEventListener('input', updateTotalPrice);
+      quantityInput.addEventListener('change', updateTotalPrice);
+      minusButton.addEventListener('click', () => setTimeout(updateTotalPrice, 50));
+      plusButton.addEventListener('click', () => setTimeout(updateTotalPrice, 50));
 
       document.querySelector('.buy-now').addEventListener('click', function(event) {
         event.preventDefault();
         const product = {
           image: document.getElementById('product-image').src,
-          name: document.querySelector('.text-black').innerText,
-          price: document.querySelector('.text-primary.h4').innerText,
+          name: document.getElementById('product-name').innerText,
+          price: document.getElementById('product-price').innerText,
           quantity: document.querySelector('.form-control.text-center').value,
-          total: document.querySelector('.text-primary.h4').innerText
+          total: document.getElementById('total-price').innerText
         };
 
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];

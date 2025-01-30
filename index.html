@@ -295,18 +295,30 @@
           const item = document.createElement('div');
           item.className = 'col-sm-6 col-lg-4 text-center item mb-4';
           item.innerHTML = `
-            <a href="shop-single.html?img=${medicament.image}"> <img src="${medicament.image}" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html?img=${medicament.image}">${medicament.name}</a></h3>
-            <p class="price">$${medicament.price.toFixed(2)}</p>
+            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+              <a href="shop-single.html?img=${medicament.image}">
+                <img src="${medicament.image}" class="card-img-top" alt="${medicament.name}" style="height: 200px; object-fit: cover;">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><a href="shop-single.html?img=${medicament.image}" class="text-dark">${medicament.name}</a></h5>
+                <p class="card-text text-primary font-weight-bold">$${medicament.price.toFixed(2)}</p>
+              </div>
+            </div>
           `;
           popularProductsContainer.appendChild(item);
 
           const newItem = document.createElement('div');
           newItem.className = 'text-center item mb-4';
           newItem.innerHTML = `
-            <a href="shop-single.html?img=${medicament.image}"> <img src="${medicament.image}" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html?img=${medicament.image}">${medicament.name}</a></h3>
-            <p class="price">$${medicament.price.toFixed(2)}</p>
+            <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+              <a href="shop-single.html?img=${medicament.image}">
+                <img src="${medicament.image}" class="card-img-top" alt="${medicament.name}" style="height: 200px; object-fit: cover;">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><a href="shop-single.html?img=${medicament.image}" class="text-dark">${medicament.name}</a></h5>
+                <p class="card-text text-primary font-weight-bold">$${medicament.price.toFixed(2)}</p>
+              </div>
+            </div>
           `;
           newProductsContainer.appendChild(newItem);
         });
