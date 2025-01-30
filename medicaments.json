@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Irbevel 150 mg",
+    "price": 55.00,
+    "description": "Irbevel 150 mg",
+    "image": "images/1.png",
+    "DCI": "Irbesartan",
+    "dosage": "150 mg",
+    "forme": "Tablet"
+  },
+  {
+    "name": "Paracetamole 500 mg",
+    "price": 55.00,
+    "description": "Paracetamole 500 mg",
+    "image": "images/1.png",
+    "DCI": "Irbesartan",
+    "dosage": "50 mg",
+    "forme": "Tablet"
+  },
+  {
+    "name": "Chanca Piedra",
+    "price": 70.00,
+    "description": "Chanca Piedra",
+    "image": "images/2.png",
+    "DCI": "Phyllanthus niruri",
+    "dosage": "500 mg",
+    "forme": "Capsule"
+  },
+  {
+    "name": "Umcka Cold Care",
+    "price": 120.00,
+    "description": "Umcka Cold Care",
+    "image": "images/3.png",
+    "DCI": "Pelargonium sidoides",
+    "dosage": "200 mg",
+    "forme": "Liquid"
+  },
+  {
+    "name": "Cetyl Pure",
+    "price": 20.00,
+    "description": "Cetyl Pure",
+    "image": "images/4.png",
+    "DCI": "Cetyl Myristoleate",
+    "dosage": "500 mg",
+    "forme": "Capsule"
+  },
+  {
+    "name": "CLA Core",
+    "price": 38.00,
+    "description": "CLA Core",
+    "image": "images/5.png",
+    "DCI": "Conjugated Linoleic Acid",
+    "dosage": "1000 mg",
+    "forme": "Softgel"
+  },
+  {
+    "name": "Poo Pourri",
+    "price": 38.00,
+    "description": "Poo Pourri",
+    "image": "images/jh odio6.png",
+    "DCI": "Essential Oils",
+    "dosage": "59 ml",
+    "forme": "Spray"
+  },
+  {
+    "name": "Bioderma",
+    "price": 55.00,
+    "description": "Bioderma",
+    "image": "images/product_07.png",
+    "DCI": "Various",
+    "dosage": "500 ml",
+    "forme": "Liquid"
+  }
+]
