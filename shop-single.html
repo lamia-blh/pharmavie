@@ -306,6 +306,15 @@
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         cartItems.push(product);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+        // Update cart count using the shared function
+        if (window.updateCartCount) {
+          window.updateCartCount();
+        }
+        
+        // Dispatch storage event for other windows
+        window.dispatchEvent(new Event('storage'));
+        
         alert('Product added to cart!');
       });
     });

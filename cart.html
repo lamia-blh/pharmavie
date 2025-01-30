@@ -148,24 +148,44 @@
           row.innerHTML = `
             <td class="product-thumbnail"><img src="${item.image}" alt="Image" class="img-fluid"></td>
             <td class="product-name"><h2 class="h5 text-black">${item.name}</h2></td>
-            <td>${item.price}</td>
+            <td class="product-price">${item.price}</td>
             <td>
               <div class="input-group mb-3" style="max-width: 120px;">
                 <div class="input-group-prepend">
-                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                  <button class="btn btn-outline-primary js-btn-minus" type="button" data-index="${index}">&minus;</button>
                 </div>
-                <input type="text" class="form-control text-center" value="${item.quantity}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <input type="text" class="form-control text-center quantity-input" value="${item.quantity}" data-index="${index}" readonly>
                 <div class="input-group-append">
-                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                  <button class="btn btn-outline-primary js-btn-plus" type="button" data-index="${index}">&plus;</button>
                 </div>
               </div>
             </td>
-            <td>${item.total}</td>
+            <td class="product-total">${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}$</td>
             <td><a href="#" class="btn btn-primary height-auto btn-sm js-btn-remove" data-index="${index}">X</a></td>
           `;
           cartTableBody.appendChild(row);
         });
 
+        // Add event listeners for quantity buttons
+        document.querySelectorAll('.js-btn-plus').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            cartItems[index].quantity++;
+            updateItem(index);
+          });
+        });
+
+        document.querySelectorAll('.js-btn-minus').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            if (cartItems[index].quantity > 1) {
+              cartItems[index].quantity--;
+              updateItem(index);
+            }
+          });
+        });
+
+        // Keep existing remove button handlers
         document.querySelectorAll('.js-btn-remove').forEach(button => {
           button.addEventListener('click', function(event) {
             event.preventDefault();
@@ -173,9 +193,36 @@
             cartItems.splice(index, 1);
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
             updateCartTable();
-            document.getElementById('cart-count').textContent = cartItems.length;
+            
+            // Update cart count using the shared function
+            if (window.updateCartCount) {
+              window.updateCartCount();
+            }
+            
+            // Dispatch storage event for other windows
+            window.dispatchEvent(new Event('storage'));
           });
         });
+      }
+
+      function updateItem(index) {
+        // Update total price
+        const price = parseFloat(cartItems[index].price.replace('$', ''));
+        cartItems[index].total = (price * cartItems[index].quantity).toFixed(2) + '$';
+        
+        // Save to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+        // Update display
+        updateCartTable();
+        
+        // Update cart count
+        if (window.updateCartCount) {
+          window.updateCartCount();
+        }
+        
+        // Notify other windows
+        window.dispatchEvent(new Event('storage'));
       }
 
       updateCartTable();

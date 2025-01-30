@@ -57,6 +57,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Update active menu item
     const currentPath = window.location.pathname.split('/').pop();
     const menuItems = document.querySelectorAll('.site-menu a');
     menuItems.forEach(item => {
@@ -67,7 +68,22 @@
       }
     });
 
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    document.getElementById('cart-count').textContent = cartItems.length;
+    // Update cart count on page load and set up storage event listener
+    function updateCartCount() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) {
+        cartCount.textContent = cartItems.length;
+      }
+    }
+
+    // Update count initially
+    updateCartCount();
+
+    // Listen for changes to localStorage
+    window.addEventListener('storage', updateCartCount);
+
+    // Also update when the cart changes in the current window
+    window.updateCartCount = updateCartCount;
   });
 </script>
