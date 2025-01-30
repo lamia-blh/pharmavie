@@ -299,12 +299,29 @@
           image: document.getElementById('product-image').src,
           name: document.getElementById('product-name').innerText,
           price: document.getElementById('product-price').innerText,
-          quantity: document.querySelector('.form-control.text-center').value,
+          quantity: parseInt(document.querySelector('.form-control.text-center').value),
           total: document.getElementById('total-price').innerText
         };
 
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        cartItems.push(product);
+        
+        // Check if product already exists in cart
+        const existingProductIndex = cartItems.findIndex(item => 
+          item.name === product.name && 
+          item.price === product.price
+        );
+
+        if (existingProductIndex !== -1) {
+          // Update quantity of existing product
+          cartItems[existingProductIndex].quantity += product.quantity;
+          // Update total
+          const price = parseFloat(product.price.replace('$', ''));
+          cartItems[existingProductIndex].total = `$${(price * cartItems[existingProductIndex].quantity).toFixed(2)}`;
+        } else {
+          // Add new product to cart
+          cartItems.push(product);
+        }
+
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         
         // Update cart count using the shared function
