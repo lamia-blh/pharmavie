@@ -25,70 +25,24 @@
 <body>
 
   <div class="site-wrap">
-
-
-    <div class="site-navbar py-2">
-
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-          </form>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <a href="index.html" class="js-logo-clone"> Biopharm</a>
-            </div>
-          </div>
-          <div class="main-nav d-none d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Store</a></li>
-                <li class="has-children">
-                  <a href="#">categories</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Cardiovasculaire et métabolisme</a></li>
-                    <li class="has-children">
-                      <a href="#">Dermatologie</a>
-                      <ul class="dropdown">
-                        <li><a href="#"></a></li>
-                       
-                        <li><a href="#">  Nutrition</a></li>
-                        <li><a href="#">  Coffee</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Diabétologie</a></li>
-                    <li><a href="#">Gastrologie</a></li>
-                    </li>
-                    <li><a href="#">Pneumo-allergologie</a></li>
-                    <li><a href="#"> Psychiatrie</a></li>
-
-                    <li><a href="#"> Rhumatologie</a></li>
-                  </ul>
-                </li>
-                <li class="active"><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="icons">
-            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
-              <span class="icon-shopping-bag"></span>
-              <span class="number">2</span>
-            </a>
-            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
-                class="icon-menu"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="header"></div>
+    <script>
+      fetch('shared/header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header').innerHTML = data;
+          const currentPath = window.location.pathname.split('/').pop();
+          const menuItems = document.querySelectorAll('.site-menu a');
+          menuItems.forEach(item => {
+            if (item.getAttribute('href') === currentPath) {
+              item.parentElement.classList.add('active');
+            } else {
+              item.parentElement.classList.remove('active');
+            }
+          });
+        })
+        .catch(error => console.error('Error loading header:', error));
+    </script>
 
     <div class="site-blocks-cover inner-page" style="background-image: url('images/hero_1.jpg');">
       <div class="container">
