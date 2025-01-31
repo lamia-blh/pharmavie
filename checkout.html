@@ -315,23 +315,8 @@
                       <th>Product</th>
                       <th>Total</th>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>Bioderma <strong class="mx-2">x</strong> 1</td>
-                        <td>$55.00</td>
-                      </tr>
-                      <tr>
-                        <td>Ibuprofeen <strong class="mx-2">x</strong> 1</td>
-                        <td>$45.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
-                      </tr>
+                    <tbody id="checkout-items">
+                      <!-- Dynamic content will be inserted here -->
                     </tbody>
                   </table>
     
@@ -372,8 +357,7 @@
                   </div>
     
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='thankyou.html'">Place
-                      Order</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="placeOrder()">Place Order</button>
                   </div>
     
                 </div>
@@ -474,6 +458,46 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const checkoutItems = document.getElementById('checkout-items');
+  
+  function loadCheckoutItems() {
+    checkoutItems.innerHTML = '';
+    let total = 0;
+
+    // Add each cart item
+    cartItems.forEach(item => {
+      const itemTotal = parseFloat(item.price.replace('$', '')) * item.quantity;
+      total += itemTotal;
+      
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.name} <strong class="mx-2">x</strong> ${item.quantity}</td>
+        <td>$${itemTotal.toFixed(2)}</td>
+      `;
+      checkoutItems.appendChild(row);
+    });
+
+    // Add total row
+    const totalRow = document.createElement('tr');
+    totalRow.innerHTML = `
+      <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+      <td class="text-black font-weight-bold"><strong>$${total.toFixed(2)}</strong></td>
+    `;
+    checkoutItems.appendChild(totalRow);
+  }
+
+  function placeOrder() {
+    // Here you can add order processing logic
+    localStorage.removeItem('cartItems'); // Clear cart after order
+    window.location = 'thankyou.html';
+  }
+
+  loadCheckoutItems();
+});
+</script>
 
 </body>
 

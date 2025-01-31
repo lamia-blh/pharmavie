@@ -76,10 +76,7 @@
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">Update Cart</button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
+                <button class="btn btn-outline-primary btn-md btn-block" onclick="window.location='shop.html'">Continue Shopping</button>
               </div>
             </div>
             <div class="row">
@@ -103,20 +100,12 @@
                     <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
-                </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black" id="cart-total">$0.00</strong>
                   </div>
                 </div>
     
@@ -226,6 +215,13 @@
       const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
       const cartTableBody = document.querySelector('.site-blocks-table tbody');
 
+      function calculateTotal() {
+        return cartItems.reduce((total, item) => {
+          const price = parseFloat(item.price.replace('$', ''));
+          return total + (price * item.quantity);
+        }, 0).toFixed(2);
+      }
+
       function updateCartTable() {
         cartTableBody.innerHTML = '';
         cartItems.forEach((item, index) => {
@@ -288,6 +284,9 @@
             window.dispatchEvent(new Event('storage'));
           });
         });
+
+        // Update the total display
+        document.getElementById('cart-total').textContent = '$' + calculateTotal();
       }
 
       function updateItem(index) {
