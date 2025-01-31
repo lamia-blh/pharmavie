@@ -49,6 +49,10 @@
           <span class="icon-shopping-bag"></span>
           <span class="number" id="cart-count">0</span>
         </a>
+        <div id="auth-buttons" class="d-inline-block ml-3">
+          <a href="login.html" class="btn btn-sm btn-outline-primary">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary ml-2">Sign Up</a>
+        </div>
         <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
       </div>
     </div>
@@ -85,5 +89,36 @@
 
     // Also update when the cart changes in the current window
     window.updateCartCount = updateCartCount;
+
+    // Update auth buttons based on login status
+    function updateAuthButtons() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      const authButtons = document.getElementById('auth-buttons');
+      
+      if (user) {
+        authButtons.innerHTML = `
+          <span class="mr-3">Welcome, ${user.firstName}</span>
+          <a href="#" onclick="handleLogout()" class="btn btn-sm btn-outline-primary">Logout</a>
+        `;
+      } else {
+        authButtons.innerHTML = `
+          <a href="login.html" class="btn btn-sm btn-outline-primary">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary ml-2">Sign Up</a>
+        `;
+      }
+    }
+
+    // Handle logout
+    window.handleLogout = function() {
+      localStorage.removeItem('user');
+      updateAuthButtons();
+      window.location.href = 'index.html';
+    }
+
+    // Update auth buttons on page load
+    updateAuthButtons();
+
+    // Listen for changes to localStorage
+    window.addEventListener('storage', updateAuthButtons);
   });
 </script>

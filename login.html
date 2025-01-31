@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login - Biopharm</title>
+    <!-- ...existing header code... -->
+    <style>
+        .login-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .login-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        .form-title {
+            color: #51eaea;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrap">
+        <div id="header"></div>
+        
+        <div class="login-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-container">
+                            <h2 class="form-title">Welcome Back</h2>
+                            <form id="loginForm" onsubmit="return handleLogin(event)">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="forgot-password">
+                                    <a href="#" class="text-primary">Forgot Password?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                                <div class="signup-link">
+                                    Don't have an account? <a href="signup.html" class="text-primary">Sign Up</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ...existing footer code... -->
+    </div>
+
+    <!-- ...existing scripts... -->
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Here you would typically make an API call to verify credentials
+            // For demo purposes, we'll just store in localStorage
+            const mockUser = {
+                email: email,
+                firstName: 'Demo',
+                lastName: 'User'
+            };
+            localStorage.setItem('user', JSON.stringify(mockUser));
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
