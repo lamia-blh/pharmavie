@@ -56,6 +56,13 @@
 
     <div class="site-section">
       <div class="container">
+        <!-- Add category title -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <h2 class="category-title">All Products</h2>
+          </div>
+        </div>
+        <!-- Products container -->
         <div class="row" id="medicaments-list">
           <!-- Dynamic content will be loaded here -->
         </div>
@@ -77,30 +84,74 @@
       </div>
     </div>
 
+    <!-- Replace all existing product loading scripts with this single script -->
     <script>
-      fetch('medicaments.json')
-        .then(response => response.json())
-        .then(data => {
-          const container = document.getElementById('medicaments-list');
-          container.innerHTML = ''; // Clear existing content
-          data.forEach(medicament => {
-            const item = document.createElement('div');
-            item.className = 'col-sm-6 col-lg-4 text-center item mb-4';
-            item.innerHTML = `
-              <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
-                <a href="shop-single.html?img=${medicament.image}&name=${encodeURIComponent(medicament.name)}&price=${medicament.price.toFixed(2)}&description=${encodeURIComponent(medicament.description)}">
-                  <img src="${medicament.image}" class="card-img-top" alt="${medicament.name}" style="height: 200px; object-fit: cover;">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="shop-single.html?img=${medicament.image}&name=${encodeURIComponent(medicament.name)}&price=${medicament.price.toFixed(2)}&description=${encodeURIComponent(medicament.description)}" class="text-dark">${medicament.name}</a></h5>
-                  <p class="card-text text-primary font-weight-bold">$${medicament.price.toFixed(2)}</p>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get category from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+
+        // Update category title
+        const categoryTitle = document.querySelector('.category-title');
+        if (categoryTitle) {
+          categoryTitle.textContent = category ? category : 'All Products';
+        }
+
+        // Fetch and display products
+        fetch('medicaments.json')
+          .then(response => response.json())
+          .then(medicaments => {
+            const container = document.getElementById('medicaments-list');
+            
+            // Filter medicaments if category is specified
+            const filteredMedicaments = category 
+              ? medicaments.filter(med => med.category === category)
+              : medicaments;
+
+            // Clear existing content
+            container.innerHTML = '';
+            
+            // Display filtered products
+            filteredMedicaments.forEach(medicament => {
+              const item = document.createElement('div');
+              item.className = 'col-sm-6 col-lg-4 text-center item mb-4';
+              item.innerHTML = `
+                <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
+                  <a href="shop-single.html?id=${encodeURIComponent(medicament.name)}">
+                    <img src="${medicament.image}" class="card-img-top" alt="${medicament.name}" style="height: 200px; object-fit: cover;">
+                  </a>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <a href="shop-single.html?id=${encodeURIComponent(medicament.name)}" class="text-dark">
+                        ${medicament.name}
+                      </a>
+                    </h5>
+                    <p class="price text-primary font-weight-bold">$${medicament.price.toFixed(2)}</p>
+                    <p class="category-tag text-muted"><small>${medicament.category}</small></p>
+                  </div>
                 </div>
+              `;
+              container.appendChild(item);
+            });
+
+            // Show "no products found" message if needed
+            if (filteredMedicaments.length === 0) {
+              container.innerHTML = `
+                <div class="col-12 text-center">
+                  <p>No products found in this category.</p>
+                </div>
+              `;
+            }
+          })
+          .catch(error => {
+            console.error('Error loading medicaments:', error);
+            document.getElementById('medicaments-list').innerHTML = `
+              <div class="col-12 text-center">
+                <p>Error loading products. Please try again later.</p>
               </div>
             `;
-            container.appendChild(item);
           });
-        })
-        .catch(error => console.error('Error loading medicaments:', error));
+      });
     </script>
 
     <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
