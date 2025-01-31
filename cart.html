@@ -225,6 +225,7 @@
       function updateCartTable() {
         cartTableBody.innerHTML = '';
         cartItems.forEach((item, index) => {
+          console.log('Image path:', item.image); // Debugging line
           const row = document.createElement('tr');
           row.innerHTML = `
             <td class="product-thumbnail"><img src="${item.image}" alt="Image" class="img-fluid"></td>

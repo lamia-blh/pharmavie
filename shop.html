@@ -154,12 +154,12 @@
             item.className = 'col-sm-6 col-lg-4 text-center item mb-4';
             item.innerHTML = `
               <div class="card shadow-sm" style="border-radius: 10px; overflow: hidden;">
-                <a href="shop-single.html?id=${encodeURIComponent(medicament.name)}">
+                <a href="shop-single.html?img=${encodeURIComponent(medicament.image)}&name=${encodeURIComponent(medicament.name)}&price=${encodeURIComponent(medicament.price)}&description=${encodeURIComponent(medicament.description)}">
                   <img src="${medicament.image}" class="card-img-top" alt="${medicament.name}" style="height: 200px; object-fit: cover;">
                 </a>
                 <div class="card-body">
                   <h5 class="card-title">
-                    <a href="shop-single.html?id=${encodeURIComponent(medicament.name)}" class="text-dark">
+                    <a href="shop-single.html?img=${encodeURIComponent(medicament.image)}&name=${encodeURIComponent(medicament.name)}&price=${encodeURIComponent(medicament.price)}&description=${encodeURIComponent(medicament.description)}" class="text-dark">
                       ${medicament.name}
                     </a>
                   </h5>

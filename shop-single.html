@@ -272,7 +272,7 @@
       }
 
       if (imgSrc) {
-        document.getElementById('product-image').src = imgSrc;
+        document.getElementById('product-image').src = decodeURIComponent(imgSrc);
       }
       if (productName) {
         document.getElementById('product-name').innerText = decodeURIComponent(productName);
