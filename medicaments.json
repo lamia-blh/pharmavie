@@ -1,82 +1,133 @@
 [
   {
-    "name": "Irbevel 150 mg",
+    "name": "Asperine",
+    "price": 30.00,
+    "description": "Asperine",
+    "image": "images/biopharm_products/cardio/Asperine.jpg",
+    "DCI": "Acetylsalicylic Acid",
+    "dosage": "500 mg",
+    "forme": "Tablet",
+    "category": "Cardiovasculaire et métabolisme"
+  },
+  {
+    "name": "Ioresta",
+    "price": 60.00,
+    "description": "Ioresta",
+    "image": "images/biopharm_products/cardio/Loresta.jpg",
+    "DCI": "Losartan",
+    "dosage": "50 mg",
+    "forme": "Tablet",
+    "category": "Cardiovasculaire et métabolisme"
+  },
+  {
+    "name": "Biopexa",
+    "price": 45.00,
+    "description": "Biopexa",
+    "image": "images/biopharm_products/cardio/Biopexa.jpg",
+    "DCI": "Bisoprolol",
+    "dosage": "10 mg",
+    "forme": "Tablet",
+    "category": "Cardiovasculaire et métabolisme"
+  },
+  {
+    "name": "Irbevel",
     "price": 55.00,
-    "description": "Irbevel 150 mg",
-    "image": "images/1.png",
+    "description": "Irbevel",
+    "image": "images/biopharm_products/cardio/Irbevel.jpg",
     "DCI": "Irbesartan",
     "dosage": "150 mg",
     "forme": "Tablet",
     "category": "Cardiovasculaire et métabolisme"
   },
   {
-    "name": "Paracetamole 500 mg",
-    "price": 55.00,
-    "description": "Paracetamole 500 mg",
-    "image": "images/1.png",
-    "DCI": "Irbesartan",
-    "dosage": "50 mg",
-    "forme": "Tablet",
-    "category": "Rhumatologie"
-  },
-  {
-    "name": "Chanca Piedra",
+    "name": "Moxotens",
     "price": 70.00,
-    "description": "Chanca Piedra",
-    "image": "images/2.png",
-    "DCI": "Phyllanthus niruri",
-    "dosage": "500 mg",
-    "forme": "Capsule",
-    "category": "Gastrologie"
-  },
-  {
-    "name": "Umcka Cold Care",
-    "price": 120.00,
-    "description": "Umcka Cold Care",
-    "image": "images/3.png",
-    "DCI": "Pelargonium sidoides",
-    "dosage": "200 mg",
-    "forme": "Liquid",
-    "category": "Pneumo-allergologie"
-  },
-  {
-    "name": "Cetyl Pure",
-    "price": 20.00,
-    "description": "Cetyl Pure",
-    "image": "images/4.png",
-    "DCI": "Cetyl Myristoleate",
-    "dosage": "500 mg",
-    "forme": "Capsule",
-    "category": "Rhumatologie"
-  },
-  {
-    "name": "CLA Core",
-    "price": 38.00,
-    "description": "CLA Core",
-    "image": "images/5.png",
-    "DCI": "Conjugated Linoleic Acid",
-    "dosage": "1000 mg",
-    "forme": "Softgel",
+    "description": "Moxotens",
+    "image": "images/biopharm_products/cardio/Moxotens.jpg",
+    "DCI": "Moxonidine",
+    "dosage": "0.3 mg",
+    "forme": "Tablet",
     "category": "Cardiovasculaire et métabolisme"
   },
   {
-    "name": "Poo Pourri",
-    "price": 38.00,
-    "description": "Poo Pourri",
-    "image": "images/jh odio6.png",
-    "DCI": "Essential Oils",
-    "dosage": "59 ml",
-    "forme": "Spray",
-    "category": "Gastrologie"
+    "name": "Apaisa",
+    "price": 50.00,
+    "description": "Apaisa",
+    "image": "images/biopharm_products/Dermatologie/Apaisa.jpg",
+    "DCI": "Various",
+    "dosage": "100 ml",
+    "forme": "Cream",
+    "category": "Dermatologie"
   },
   {
-    "name": "Bioderma",
-    "price": 55.00,
-    "description": "Bioderma",
-    "image": "images/product_07.png",
+    "name": "Biomla",
+    "price": 45.00,
+    "description": "Biomla",
+    "image": "images/biopharm_products/Dermatologie/Biomla.jpg",
     "DCI": "Various",
-    "dosage": "500 ml",
-    "forme": "Liquid",
+    "dosage": "50 ml",
+    "forme": "Cream",
     "category": "Dermatologie"
+  },
+  {
+    "name": "Clotasol Crm",
+    "price": 60.00,
+    "description": "Clotasol Crm",
+    "image": "images/biopharm_products/Dermatologie/Clotasol_Crm.jpg",
+    "DCI": "Clobetasol",
+    "dosage": "30 g",
+    "forme": "Cream",
+    "category": "Dermatologie"
+  },
+  {
+    "name": "Clotasol Pmd",
+    "price": 65.00,
+    "description": "Clotasol Pmd",
+    "image": "images/biopharm_products/Dermatologie/Clotasol_Pmd.jpg",
+    "DCI": "Clobetasol",
+    "dosage": "30 g",
+    "forme": "Pomade",
+    "category": "Dermatologie"
+  },
+  {
+    "name": "Terbinan",
+    "price": 70.00,
+    "description": "Terbinan",
+    "image": "images/biopharm_products/Dermatologie/Terbinan.jpg",
+    "DCI": "Terbinafine",
+    "dosage": "250 mg",
+    "forme": "Tablet",
+    "category": "Dermatologie"
+  },
+  
+  {
+    "name": "Bionorm",
+    "price": 85.00,
+    "description": "Bionorm",
+    "image": "images/biopharm_products/Diabétologie/Bionorm.jpg",
+    "DCI": "Metformin",
+    "dosage": "850 mg",
+    "forme": "Tablet",
+    "category": "Diabétologie"
+  },
+  {
+    "name": "Corect",
+    "price": 95.00,
+    "description": "Corect",
+    "image": "images/biopharm_products/Diabétologie/Corect.jpg",
+    "DCI": "Gliclazide",
+    "dosage": "80 mg",
+    "forme": "Tablet",
+    "category": "Diabétologie"
+  },
+  {
+    "name": "Glatix",
+    "price": 105.00,
+    "description": "Glatix",
+    "image": "images/biopharm_products/Diabétologie/Glatix.jpg",
+    "DCI": "Glimepiride",
+    "dosage": "4 mg",
+    "forme": "Tablet",
+    "category": "Diabétologie"
   }
 ]
