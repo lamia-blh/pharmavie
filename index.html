@@ -52,7 +52,7 @@
               <h2 class="sub-title"> </h2>
               <h1>Welcome To BIOPHARM</h1>
               <p>
-                <a href="#" class="btn btn-primary px-5 py-3">Shop Now</a>
+                <a href="shop.html" class="btn btn-primary px-5 py-3">Shop Now</a>
               </p>
             </div>
           </div>
@@ -130,8 +130,32 @@
         </div>
         <div class="row">
           <div class="col-md-12 block-3 products-wrap">
-            <div class="nonloop-block-3 owl-carousel" id="new-products">
-              <!-- Dynamic content will be loaded here -->
+            <div class="nonloop-block-3 owl-carousel">
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+                <p class="price">$120.00</p>
+              </div>
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+                <p class="price">$120.00</p>
+              </div>
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+                <p class="price">$120.00</p>
+              </div>
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+                <p class="price">$120.00</p>
+              </div>
+
             </div>
           </div>
         </div>
@@ -291,7 +315,8 @@
         const popularProductsContainer = document.getElementById('popular-products');
         const newProductsContainer = document.getElementById('new-products');
 
-        data.forEach(medicament => {
+        // Limit popular products to 3 items
+        data.slice(0, 3).forEach(medicament => {
           const item = document.createElement('div');
           item.className = 'col-sm-6 col-lg-4 text-center item mb-4';
           item.innerHTML = `
@@ -306,7 +331,10 @@
             </div>
           `;
           popularProductsContainer.appendChild(item);
+        });
 
+        // Keep new products section unchanged
+        data.forEach(medicament => {
           const newItem = document.createElement('div');
           newItem.className = 'text-center item mb-4';
           newItem.innerHTML = `

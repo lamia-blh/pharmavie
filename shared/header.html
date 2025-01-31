@@ -2,8 +2,8 @@
   <div class="search-wrap">
     <div class="container">
       <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-      <form action="#" method="post">
-        <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+      <form action="#" method="post" id="search-form">
+        <input type="text" class="form-control" id="search-input" placeholder="Search products by name...">
       </form>
     </div>
   </div>
@@ -154,5 +154,44 @@
 
     // Listen for changes to localStorage
     window.addEventListener('storage', updateAuthButtons);
+
+    // Add event listener for real-time search
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      
+      // If we're not on the shop page, redirect to it
+      if (!window.location.pathname.endsWith('shop.html')) {
+        window.location.href = `shop.html?search=${encodeURIComponent(searchTerm)}`;
+        return;
+      }
+      
+      // If we're already on the shop page, trigger the search
+      if (window.filterProducts) {
+        window.filterProducts(searchTerm);
+      }
+    });
   });
+
+  // Add this function to the existing script section
+  function handleSearch(event) {
+    event.preventDefault();
+    const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+    
+    // Close search bar
+    document.querySelector('.js-search-close').click();
+    
+    // If we're not on the shop page, redirect to it
+    if (!window.location.pathname.endsWith('shop.html')) {
+      window.location.href = `shop.html?search=${encodeURIComponent(searchTerm)}`;
+      return false;
+    }
+    
+    // If we're already on the shop page, trigger the search
+    if (window.filterProducts) {
+      window.filterProducts(searchTerm);
+    }
+    
+    return false;
+  }
 </script>
