@@ -24,13 +24,7 @@
               <a href="#">Categories</a>
               <ul class="dropdown">
                 <li><a href="#">Cardiovasculaire et métabolisme</a></li>
-                <li class="has-children">
-                  <a href="#">Dermatologie</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Nutrition</a></li>
-                    <li><a href="#">Coffee</a></li>
-                  </ul>
-                </li>
+                <li><a href="#">Dermatologie</a></li>
                 <li><a href="#">Diabétologie</a></li>
                 <li><a href="#">Gastrologie</a></li>
                 <li><a href="#">Pneumo-allergologie</a></li>
@@ -50,14 +44,54 @@
           <span class="number" id="cart-count">0</span>
         </a>
         <div id="auth-buttons" class="d-inline-block ml-3">
-          <a href="login.html" class="btn btn-sm btn-outline-primary">Login</a>
-          <a href="signup.html" class="btn btn-sm btn-primary ml-2">Sign Up</a>
+          <a href="login.html" class="btn btn-sm auth-btn login-btn">Login</a>
+          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Sign Up</a>
         </div>
         <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+.auth-btn {
+  padding: 0.375rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.login-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #fff;
+  color: rgb(0, 195, 255);
+}
+
+.signup-btn {
+  background-color: #fff;
+  border: 2px solid #fff;
+  color: rgb(0, 195, 255);
+  margin-left: 0.5rem;
+}
+
+.signup-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 145, 189);
+}
+
+#auth-buttons .mr-3 {
+  color: #fff;
+  font-weight: 500;
+}
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -102,8 +136,8 @@
         `;
       } else {
         authButtons.innerHTML = `
-          <a href="login.html" class="btn btn-sm btn-outline-primary">Login</a>
-          <a href="signup.html" class="btn btn-sm btn-primary ml-2">Sign Up</a>
+          <a href="login.html" class="btn btn-sm auth-btn login-btn">Login</a>
+          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Sign Up</a>
         `;
       }
     }

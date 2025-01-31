@@ -1,101 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign Up - Biopharm</title>
-    <!-- ...existing header code... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Biopharm</title>
     <style>
-        .signup-section {
-            min-height: 80vh;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
             padding: 2rem 0;
         }
         .signup-container {
             background: white;
+            padding: 3rem;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 2rem;
-        }
-        .form-title {
-            color: #51eaea;
-            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
             text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            color: #3498db;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            width: 100%;
+            margin: 1.5rem 0 1rem 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2980b9;
         }
         .login-link {
             text-align: center;
             margin-top: 1rem;
+            color: #666;
+        }
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="site-wrap">
-        <div id="header"></div>
-        
-        <div class="signup-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6">
-                        <div class="signup-container">
-                            <h2 class="form-title">Create Account</h2>
-                            <form id="signupForm" onsubmit="return handleSignup(event)">
-                                <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirmPassword">Confirm Password</label>
-                                    <input type="password" class="form-control" id="confirmPassword" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
-                                <div class="login-link">
-                                    Already have an account? <a href="login.html" class="text-primary">Login</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <div class="signup-container">
+        <h1>Biopharm</h1>
+        <h2>Sign Up</h2>
+        <form id="signupForm" onsubmit="return handleSignup(event)">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required>
             </div>
-        </div>
-
-        <!-- ...existing footer code... -->
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" required>
+                    <option value="">--Select a country--</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="login-link">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </form>
     </div>
-
     <!-- ...existing scripts... -->
     <script>
         function handleSignup(event) {
             event.preventDefault();
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+            const user = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                country: document.getElementById('country').value
+            };
 
-            if (password !== confirmPassword) {
+            if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
                 alert('Passwords do not match');
                 return false;
             }
 
-            // Here you would typically make an API call to create the account
-            // For demo purposes, we'll just store in localStorage
-            const user = {
-                firstName,
-                lastName,
-                email
-            };
             localStorage.setItem('user', JSON.stringify(user));
             window.location.href = 'index.html';
         }
