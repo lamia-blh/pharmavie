@@ -1,8 +1,8 @@
 [
   {
-    "name": "Aspirine Cardio",
+    "name": "Asperine",
     "price": 30.00,
-    "description": "Aspirin Cardio 100 mg is a low-dose antiplatelet medication that helps prevent heart attacks and strokes by reducing blood clot formation. It is recommended for patients at risk of cardiovascular diseases. Dosage: 100 mg once daily. Consult your doctor before use",
+    "description": "",
     "image": "images/biopharm_products/cardio/Asperine.jpg",
     "DCI": "Acetylsalicylic Acid",
     "dosage": "500 mg",
