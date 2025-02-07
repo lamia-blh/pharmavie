@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="css/aos.css">
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="style.css" />
 
 </head>
 
@@ -309,7 +308,6 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-  <script src="script.js"></script>
   <script>
     fetch('medicaments.json')
       .then(response => response.json())
@@ -355,62 +353,6 @@
       })
       .catch(error => console.error('Error loading medicaments:', error));
   </script>
-   <div class="profile-dropdown">
-    <div onclick="toggle()" class="profile-dropdown-btn">
-      <div class="profile-img">
-        <i class="fa-solid fa-circle"></i>
-      </div>
-
-      <span
-        >Victoria
-        <i class="fa-solid fa-angle-down"></i>
-      </span>
-    </div>
-
-    < class="profile-dropdown-list">
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-regular fa-user"></i>
-          Edit Profile
-        </a>
-      </li>
-
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-regular fa-envelope"></i>
-          Inbox
-        </a>
-      </li>
-
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-solid fa-chart-line"></i>
-          Analytics
-        </a>
-      </li>
-
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-solid fa-sliders"></i>
-          Settings
-        </a>
-      </li>
-
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-regular fa-circle-question"></i>
-          Help & Support
-        </a>
-      </li>
-      <hr />
-
-      <li class="profile-dropdown-list-item">
-        <a href="#">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          Log out
-        </a>
-      </li>
-  </div>
 </body>
 
 </html>
