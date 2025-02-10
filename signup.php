@@ -1,4 +1,28 @@
+<?php
+include("connexion.php");
+if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&& isset($_POST['address'])&& isset($_POST['phone_number'])&& isset($_POST['password'])&& isset($_POST['role'])&& isset($_POST['Enregistre'])){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $address=$_POST['address'];
+    $num_tel=$_POST['phone_number'];
+    $password=$_POST['password'];
+    $role=$_POST['role'];
+    $lastname=$_POST['lastname'];
+    $sql="INSERT INTO user (name,email,adress,phone_number,password,role,lastname) VALUES ('$name,$email,$address,$num_tel,$password,$role,$lastname')";
+    $rest=mysqli_query($conn,$sql);
+    if($rest){
+        header('location:index.html');
+    }else{
+        echo "impossible ";
+    }
+}
+ else{
+    echo"erreur";
+}
 
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +143,7 @@
                 <input type="Role" id="Role" required>
             </div>
             
-            <button type="submit">Enregistré</button>
+            <button type="submit" name="Enregistre">Enregistré</button>
             <div class="login-link">
              j'ai déja un compte? <a href="login.html">Se connecter</a>
             </div>
