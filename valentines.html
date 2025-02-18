@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeuse Saint-Valentin ❤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #681010;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .card {
+            width: 200px;
+            height: 250px;
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .front, .inside {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .front {
+            background: red;
+            color: white;
+        }
+        .inside {
+            background: pink;
+            color: darkred;
+            transform: rotateY(180deg);
+        }
+        .card.open .front {
+            transform: rotateY(180deg);
+        }
+        .card.open .inside {
+            transform: rotateY(360deg);
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="heartsCanvas"></canvas>
+
+    <div class="card">
+        <div class="front">
+            <p>Clique-moi ❤</p>
+        </div>
+        <div class="inside">
+            <p>Joyeuse Saint-Valentin ! 💖</p>
+        </div>
+    </div>
+
+    <script>
+        // Animation de la carte
+        document.querySelector(".card").addEventListener("click", function() {
+            this.classList.toggle("open");
+        });
+
+        // Animation des cœurs flottants
+        const canvas = document.getElementById("heartsCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let hearts = [];
+        function createHeart() {
+            return {
+                x: Math.random() * canvas.width,
+                y: canvas.height + Math.random() * 100,
+                size: Math.random() * 10 + 5,
+                speed: Math.random() * 2 + 1,
+                opacity: Math.random() * 0.5 + 0.5
+            };
+        }
+        function drawHeart(heart) {
+            ctx.fillStyle = rgba(255, 0, 0, ${heart.opacity});
+            ctx.beginPath();
+            ctx.arc(heart.x, heart.y, heart.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        function updateHearts() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hearts.forEach((heart, index) => {
+                heart.y -= heart.speed;
+                if (heart.y < -10) hearts[index] = createHeart();
+                drawHeart(heart);
+            });
+            requestAnimationFrame(updateHearts);
+        }
+        for (let i = 0; i < 50; i++) {
+            hearts.push(createHeart());
+        }
+        updateHearts();
+    </script>
+
+</body>
+</html>
