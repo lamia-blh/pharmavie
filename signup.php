@@ -1,3 +1,4 @@
+
 <?php
 include("connexion.php");
 if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&& isset($_POST['address'])&& isset($_POST['phone_number'])&& isset($_POST['password'])&& isset($_POST['role'])&& isset($_POST['Enregistre'])){
@@ -109,7 +110,7 @@ if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&&
     <div class="signup-container">
         <h1>Biopharm</h1>
         <h2>Enregistré</h2>
-        <form id="signupForm" onsubmit="return handleSignup(event)">
+        <form action="" method="POST" >
             <div class="form-group">
                 <label for="firstName">Nom: </label>
                 <input type="text" id="firstName" required>
@@ -120,15 +121,15 @@ if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&&
             </div>
             <div class="form-group">
                 <label for="email">Email: </label>
-                <input type="email" id="email" required>
+                <input type="text" id="email" required>
             </div>
             <div class="form-group">
                 <label for="Adress">Adress: </label>
-                <input type="Adress" id="Adress" required>
+                <input type="text" id="adress" required>
             </div>
             <div class="form-group">
                 <label for="phone">Numéro_télephone</label>
-                <input type="tel" id="phone" required>
+                <input type="text" id="phone" required>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe: </label>
@@ -139,8 +140,8 @@ if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&&
                 <input type="password" id="confirmPassword" required>
             </div>
             <div class="form-group">
-                <label for="Role">Role </label>
-                <input type="Role" id="Role" required>
+                <label for="role">Role </label>
+                <input type="text" id="role" required>
             </div>
             
             <button type="submit" name="Enregistre">Enregistré</button>
@@ -158,7 +159,7 @@ if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['lastname'])&&
                 lastName: document.getElementById('lastName').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                country: document.getElementById('country').value
+                role: document.getElementById('role').value
             };
 
             if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
