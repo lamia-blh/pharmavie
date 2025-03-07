@@ -3,7 +3,7 @@
     <div class="container">
       <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
       <form action="#" method="post" id="search-form">
-        <input type="text" class="form-control" id="search-input" placeholder="Search products by name...">
+        <input type="text" class="form-control" id="search-input" placeholder="Rechercher des produits par nom...">
       </form>
     </div>
   </div>
@@ -18,10 +18,10 @@
       <div class="main-nav d-none d-lg-block">
         <nav class="site-navigation text-right text-md-center" role="navigation">
           <ul class="site-menu js-clone-nav d-none d-lg-block">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Store</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="shop.html">Magasin</a></li>
             <li class="has-children">
-              <a href="#">Categories</a>
+              <a href="#">Catégories</a>
               <ul class="dropdown">
                 <li><a href="shop.html?category=Cardiovasculaire%20et%20métabolisme">Cardiovasculaire et métabolisme</a></li>
                 <li><a href="shop.html?category=Dermatologie">Dermatologie</a></li>
@@ -32,7 +32,7 @@
                 <li><a href="shop.html?category=Rhumatologie">Rhumatologie</a></li>
               </ul>
             </li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">À propos</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -44,8 +44,8 @@
           <span class="number" id="cart-count">0</span>
         </a>
         <div id="auth-buttons" class="d-inline-block ml-3">
-          <a href="login.html" class="btn btn-sm auth-btn login-btn">Login</a>
-          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Sign Up</a>
+          <a href="login.html" class="btn btn-sm auth-btn login-btn">Connexion</a>
+          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Inscription</a>
         </div>
         <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
       </div>
@@ -132,13 +132,13 @@
       
       if (user) {
         authButtons.innerHTML = `
-          <span class="mr-3">Welcome, ${user.firstName}</span>
-          <a href="#" onclick="handleLogout()" class="btn btn-sm btn-outline-primary">Logout</a>
+          <span class="mr-3">Bienvenue, ${user.firstName}</span>
+          <a href="#" onclick="handleLogout()" class="btn btn-sm btn-outline-primary">Déconnexion</a>
         `;
       } else {
         authButtons.innerHTML = `
-          <a href="login.html" class="btn btn-sm auth-btn login-btn">Login</a>
-          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Sign Up</a>
+          <a href="login.html" class="btn btn-sm auth-btn login-btn">Connexion</a>
+          <a href="signup.html" class="btn btn-sm auth-btn signup-btn">Inscription</a>
         `;
       }
     }

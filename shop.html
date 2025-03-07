@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <title> site web Biopharm</title>
@@ -42,7 +42,7 @@
             }
           });
         })
-        .catch(error => console.error('Error loading header:', error));
+        .catch(error => console.error('Erreur lors du chargement de l\'en-tête:', error));
     </script>
 
     <!-- Remove the breadcrumb navigation -->
@@ -59,7 +59,7 @@
         <!-- Add category title -->
         <div class="row mb-4">
           <div class="col-12">
-            <h2 class="category-title">All Products</h2>
+            <h2 class="category-title">Tous les produits</h2>
           </div>
         </div>
         <!-- Products container -->
@@ -95,9 +95,9 @@
         const categoryTitle = document.querySelector('.category-title');
         if (categoryTitle) {
           if (searchTerm) {
-            categoryTitle.textContent = `Search Results for "${searchTerm}"`;
+            categoryTitle.textContent = `Résultats de recherche pour "${searchTerm}"`;
           } else {
-            categoryTitle.textContent = category ? category : 'All Products';
+            categoryTitle.textContent = category ? category : 'Tous les produits';
           }
         }
 
@@ -114,7 +114,7 @@
           
           // Update title
           if (categoryTitle) {
-            categoryTitle.textContent = searchTerm ? `Search Results for "${searchTerm}"` : (category ? category : 'All Products');
+            categoryTitle.textContent = searchTerm ? `Résultats de recherche pour "${searchTerm}"` : (category ? category : 'Tous les produits');
           }
 
           // Reset to first page and display results
@@ -143,7 +143,7 @@
           if (paginatedItems.length === 0) {
             container.innerHTML = `
               <div class="col-12 text-center">
-                <p>No products found.</p>
+                <p>Aucun produit trouvé.</p>
               </div>
             `;
             return;
@@ -225,10 +225,10 @@
             }
           })
           .catch(error => {
-            console.error('Error loading medicaments:', error);
+            console.error('Erreur lors du chargement des médicaments:', error);
             document.getElementById('medicaments-list').innerHTML = `
               <div class="col-12 text-center">
-                <p>Error loading products. Please try again later.</p>
+                <p>Erreur de chargement des produits. Veuillez réessayer plus tard.</p>
               </div>
             `;
           });
@@ -241,7 +241,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
               <div class="banner-1-inner align-self-center">
-                <h2>Pharma Products</h2>
+                <h2>Produits Pharma</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
                 </p>
               </div>
@@ -250,7 +250,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');"></a>
               <div class="banner-1-inner ml-auto  align-self-center">
-                <h2>Rated by Experts</h2>
+                <h2>Évalué par des experts</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
                 </p>
               </div>
@@ -267,14 +267,14 @@
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
             <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
+              <h3 class="footer-heading mb-4">À propos de nous</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio voluptates
                 sed dolorum excepturi iure eaque, aut unde.</p>
             </div>
 
           </div>
           <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
+            <h3 class="footer-heading mb-4">Liens rapides</h3>
             <ul class="list-unstyled">
               <li><a href="#">Supplements</a></li>
               <li><a href="#">Vitamins</a></li>
@@ -285,7 +285,7 @@
 
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <h3 class="footer-heading mb-4">Infos de contact</h3>
               <ul class="list-unstyled">
                 <li class="address"><a href="adrs://">18, rue de zone industrielle route de la gare, Houch Mahiéddine, Reghaia - Alger 16000, Algerie..</a></li>
                 <li class="phone"><a href="tel://2135572195"> </a>023 85 10 109</li>

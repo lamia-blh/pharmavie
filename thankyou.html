@@ -27,64 +27,26 @@
   <div class="site-wrap">
 
 
-    <div class="site-navbar py-2">
+    <div class="site-wrap">
 
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-          </form>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">Biopharm</a>
-            </div>
-          </div>
-          <div class="main-nav d-none d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
-              <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Store</a></li>
-                <li class="has-children">
-                  <a href="#">Dropdown</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Supplements</a></li>
-                    <li class="has-children">
-                      <a href="#">Vitamins</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Supplements</a></li>
-                        <li><a href="#">Vitamins</a></li>
-                        <li><a href="#">Diet &amp; Nutrition</a></li>
-                        <li><a href="#">Tea &amp; Coffee</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Diet &amp; Nutrition</a></li>
-                    <li><a href="#">Tea &amp; Coffee</a></li>
-
-                  </ul>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li class="active"><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="icons">
-            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-            <a href="cart.html" class="icons-btn d-inline-block bag">
-              <span class="icon-shopping-bag"></span>
-              <span class="number">2</span>
-            </a>
-            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
-                class="icon-menu"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="header"></div>
+      <script>
+        fetch('shared/header.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+            const currentPath = window.location.pathname.split('/').pop();
+            const menuItems = document.querySelectorAll('.site-menu a');
+            menuItems.forEach(item => {
+              if (item.getAttribute('href') === currentPath) {
+                item.parentElement.classList.add('active');
+              } else {
+                item.parentElement.classList.remove('active');
+              }
+            });
+          })
+          .catch(error => console.error('Error loading header:', error));
+      </script>
 
     <div class="bg-light py-3">
       <div class="container">
@@ -96,9 +58,9 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
-            <h2 class="display-3 text-black">Thank you!</h2>
-            <p class="lead mb-5">You order was successfuly completed.</p>
-            <p><a href="shop.html" class="btn btn-md height-auto px-4 py-3 btn-primary">Back to store</a></p>
+            <h2 class="display-3 text-black">Merci !</h2>
+            <p class="lead mb-5">Votre commande a été effectuée avec succès.</p>
+            <p><a href="shop.html" class="btn btn-md height-auto px-4 py-3 btn-primary">Retour à la boutique</a></p>
           </div>
         </div>
       </div>
@@ -111,25 +73,25 @@
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
             <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
+              <h3 class="footer-heading mb-4">À propos de nous</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio voluptates
                 sed dolorum excepturi iure eaque, aut unde.</p>
             </div>
 
           </div>
           <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
+            <h3 class="footer-heading mb-4">Liens rapides</h3>
             <ul class="list-unstyled">
-              <li><a href="#">Supplements</a></li>
-              <li><a href="#">Vitamins</a></li>
-              <li><a href="#">Diet &amp; Nutrition</a></li>
-              <li><a href="#">Tea &amp; Coffee</a></li>
+              <li><a href="#">Suppléments</a></li>
+              <li><a href="#">Vitamines</a></li>
+              <li><a href="#">Régime &amp; Nutrition</a></li>
+              <li><a href="#">Thé &amp; Café</a></li>
             </ul>
           </div>
 
           <div class="col-md-6 col-lg-3">
             <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <h3 class="footer-heading mb-4">Informations de contact</h3>
               <ul class="list-unstyled">
                 <li class="address"><a href="adrs://">18, rue de zone industrielle route de la gare, Houch Mahiéddine, Reghaia - Alger 16000, Algerie..</a></li>
                 <li class="phone"><a href="tel://2135572195"> </a>023 85 10 109</li>
@@ -147,27 +109,4 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;
               <script>document.write(new Date().getFullYear());</script>
-              with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://www.who.int/fr" target="_blank"
-                class="text-primary">organisation mondiale de la santé</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-
-  <script src="js/main.js"></script>
-
-</body>
-
-</html>
+              avec <i class="icon-heart
