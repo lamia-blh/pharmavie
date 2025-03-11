@@ -1126,3 +1126,7 @@ a {
 
 .custom-table td {
   color: #000; }
+
+.site-section.bg-primary .p-4.bg-white.mb-3.rounded {
+  min-height: 180px;
+}
