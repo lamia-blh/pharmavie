@@ -64,7 +64,7 @@
           </div>
           <div class="col-md-12">
     
-            <form action="#" method="post">
+            <form action="#" method="post" enctype="multipart/form-data">
               <div class="p-3 p-lg-5 border">
                 <!-- Hidden fields for user info -->
                 <input type="hidden" id="c_fname" name="c_fname">
@@ -82,6 +82,12 @@
                   <div class="col-md-12">
                     <label for="c_message" class="text-black">Message </label>
                     <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <label for="c_photo" class="text-black">Photo du produit (optionnel)</label>
+                    <input type="file" class="form-control" id="c_photo" name="c_photo" accept="image/*" multiple>
                   </div>
                 </div>
                 <div class="form-group row">
